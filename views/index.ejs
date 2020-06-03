@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>WeatherUp</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+ <style>
+   body{
+     text-align: center;
+   }
+   .col-sm-3{
+     font-family: Arial, Helvetica, sans-serif;
+     font-style: normal;
+     font-size: xx-large;
+   }
+ </style>
+</head>
+<body>
+  <div class="container" style="background-color: rgb(190, 214, 236);">
+    <div class="row bg-primary">
+      <div class="col"><h1>Weather Report</h1></div>
+    </div>
+    <br>
+    <br>
+  <% if(typeof(data)!='undefined'){ %>
+    <div class="row">
+      <div class="col-sm-3"><%=data.request.query%></div>
+      <div class="col-sm-3"><%=data.current.temperature%>&degC</div>
+      <div class="col-sm-3"><%=data.current.weather_descriptions[0]%></div>
+      <div class="col-sm-3"><img src="<%=data.current.weather_icons[0]%>" alt=""></div>
+    </div>
+    <% } else { %>
+        <div class="row">
+          <div class="col-sm-3">City</div>
+          <div class="col-sm-3">Temp</div>
+          <div class="col-sm-3">Description</div>
+          <div class="col-sm-3">Image</div>
+        </div>
+        <% } %>
+     <br>
+     <br>
+     <br>
+    
+    </div>
+    <br>
+    <br>
+    <div class="container">
+      <form action="/temp" method="POST">
+        <div class="row">
+          <div class="col-sm-8" style="text-align: right; ">
+            <input class="form-control mb-2 mr-sm-2" type="text" name="city" id="city" placeholder="City" 
+            style="margin-left: 30px; margin-right: 30px;">
+          </div>
+          <div class="col-sm-4" style="text-align: center;">
+            <button class="btn btn-dark" type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+</body>
+</html>
