@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const request = require('request');
 const key = "b3054ad09befe14ffb5c8190f4059de8";
 var bodyparser = require('body-parser');
@@ -32,5 +32,5 @@ app.post('/temp',(req,res,next)=>{
 app.listen(PORT,(err)=>{
  if(err)
  throw err;
- console.log("Coonected to Port 3000");
+ console.log("Coonected to Port");
 });
