@@ -13,3 +13,5 @@ Open browser
 <br>
 Look around <h1>loclahost:3000</h1>
 
+Check out the deployed app at:
+<a>https://coolnights.herokuapp.com/</a>
